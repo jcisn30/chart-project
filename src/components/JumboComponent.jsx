@@ -80,7 +80,7 @@ const Jumbo = (props) => {
     
     return (
       <div className="jumbotron" style={{backgroundColor: '#ffffff'}}>
-        <h1 className="display-4">Who is the <img src={goat} style={{width: '100px'}} alt="mean looking cartoon goat"/></h1>
+        <h1 className="display-4">Who's the <img src={goat} style={{width: '100px'}} alt="mean looking cartoon goat"/></h1>
         <p>You decide based on each players best statistical season</p>
           {toggleChart ? <Line data={data} getDatasetAtEvent={getDatasetAtEvent} getElementAtEvent={getElementAtEvent}/> : <Bar data={data} options={options}  getDatasetAtEvent={getDatasetAtEvent} getElementAtEvent={getElementAtEvent} /> }
           <div className='text-center' style={{marginTop: '35px'}}>
