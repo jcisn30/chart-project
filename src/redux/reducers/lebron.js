@@ -4,7 +4,7 @@ import * as type from '../types';
 const initialState = {
   lebron: [],
   loading: false,
-  error: undefined
+  error: null
 }
 
 export default function lebron(state = initialState, action) {
