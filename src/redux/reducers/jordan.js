@@ -4,7 +4,7 @@ import * as type from '../types';
 const initialState = {
   jordan: [],
   loading: false,
-  error: undefined
+  error: null
 }
 
 export default function jordan(state = initialState, action) {
