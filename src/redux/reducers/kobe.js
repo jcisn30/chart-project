@@ -4,7 +4,7 @@ import * as type from '../types';
 const initialState = {
   kobe: [],
   loading: false,
-  error: undefined
+  error: null
 }
 
 export default function kobe(state = initialState, action) {
