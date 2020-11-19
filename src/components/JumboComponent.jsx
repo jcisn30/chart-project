@@ -57,6 +57,7 @@ const Jumbo = (props) => {
       //state to toggle which chart to show
       const [toggleChart, setToggleChart] = useState(false)
 
+      //focus on bottom of graph
       const statSection = () => { window.location = '#stat'}
     
       //get data set
