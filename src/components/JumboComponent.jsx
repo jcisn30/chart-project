@@ -7,7 +7,7 @@ import goat from '../../src/goat.png'
 const Jumbo = (props) => {
   //chart data: labels, individaul data from each state and chart colors
      const data = {
-       labels: ["Free Throw Percentage", "Field Goal Percentage", "Three Point Percentage", "Points Per Game", "Rebounds Per Game", "Assists Per Game", "Blocks Per Game"],
+       labels: ["FT%", "FG%", "3P%", "Points PG", "Rebounds PG", "Assists PG", "Blocks PG"],
        datasets: [
         {
           label: "Jordan",
@@ -56,13 +56,14 @@ const Jumbo = (props) => {
       const [clickedElement, setClickedElement] = useState('')
       //state to toggle which chart to show
       const [toggleChart, setToggleChart] = useState(false)
+
+      const statSection = () => { window.location = '#stat'}
     
       //get data set
       const getDatasetAtEvent = dataset => {
         if (!dataset.length) return
         const datasetIndex = dataset[0]._datasetIndex
         setClickedDataset(data.datasets[datasetIndex].label)
-        
       }
     
       //get element
@@ -72,7 +73,7 @@ const Jumbo = (props) => {
         setClickedElement(
           `${data.labels[index]} - ${data.datasets[datasetIndex].data[index]}`
         )
-        window.location = '#stat';
+        statSection()
       }
 
     
@@ -81,12 +82,12 @@ const Jumbo = (props) => {
     return (
       <div className="jumbotron" style={{backgroundColor: '#ffffff'}}>
         <h1 className="display-4">Who's the <img src={goat} style={{width: '100px'}} alt="mean looking cartoon goat"/></h1>
-        <p>You decide based on each players best statistical season</p>
+        <p>You decide based on each players best statistical season (season averages and per game stats)</p>
           {toggleChart ? <Line data={data} getDatasetAtEvent={getDatasetAtEvent} getElementAtEvent={getElementAtEvent}/> : <Bar data={data} options={options}  getDatasetAtEvent={getDatasetAtEvent} getElementAtEvent={getElementAtEvent} /> }
           <div className='text-center' style={{marginTop: '35px'}}>
-            <p style={{marginBottom: '30px'}} id="stat">{clickedDataset} : {clickedElement} </p>
-            <button type="button" className="btn btn-info" onClick={() => { setToggleChart(false)}} style={{marginRight: '10px'}}>Show Bar Chart</button>
-            <button type="button" className="btn btn-light" onClick={() => { setToggleChart(true)}}>Show Line Chart</button>
+            <p style={{marginBottom: '30px'}} id="stat">{clickedDataset} : {clickedElement}</p>
+            <button type="button" className="btn btn-info" onClick={() => {setToggleChart(false)}} style={{marginRight: '10px'}}><a href="#stat" style={{color:'white'}}>Show Bar Chart</a></button>
+            <button type="button" className="btn btn-light" onClick={() => { setToggleChart(true)}}><a href="#stat" style={{color:'black'}}>Show Line Chart</a></button>
           </div>
       </div>
     )
